@@ -1,4 +1,4 @@
-# PlacementPrep (Netlify Version)
+# PlacementPrep
 
 PlacementPrep is a full-stack web application to help students prepare for campus placements. It features a React frontend and a Python Flask backend, now restructured for seamless deployment on Netlify using serverless functions.
 
