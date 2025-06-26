@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./WEB-Application
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env # Load environment variables from .env file
+    container_name: placementprep-backend
+
+  frontend:
+    build:
+      context: ./WEB-Application/Next-Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    container_name: placementprep-frontend 

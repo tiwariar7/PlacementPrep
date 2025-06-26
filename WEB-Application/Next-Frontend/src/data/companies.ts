@@ -1,0 +1,389 @@
+export interface Company {
+  id: string;
+  name: string;
+  packageRange: string;
+  year: string;
+  role: string;
+  tier: string;
+  branches: string[];
+  requirements: string[];
+  interviewRounds: string;
+  description?: string;
+  logo?: string;
+}
+
+export const companies: Company[] = [
+  {
+    id: "fivetran",
+    name: "Fivetran",
+    packageRange: "25 - 48",
+    year: "2023",
+    role: "Data Engineering Associate",
+    tier: "Top-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["SQL", "Python", "ETL pipelines", "DSA"],
+    interviewRounds: "1. OA – SQL queries, Python scripting, ETL logic, DSA\n2. Tech Interviews (2) – SQL optimization, database schema design, Python logic, project discussion\n3. HR – Resume, culture fit, communication",
+    description: "Leading data integration platform helping companies make their data warehouse analytics-ready."
+  },
+  {
+    id: "lg-ad-solution",
+    name: "LG AD Solution",
+    packageRange: "37",
+    year: "2024",
+    role: "Associate AI Engineer",
+    tier: "Top-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["ML/DL", "Python", "CV/NLP"],
+    interviewRounds: "1. OA – Python + ML MCQs, basic CV/NLP logic\n2. Tech Interview – Deep Learning models, real-world ML application, past projects\n3. Managerial + HR – AI roadmap discussion, team fit",
+    description: "LG's advertising technology division focusing on AI-driven advertising solutions."
+  },
+  {
+    id: "servicenow",
+    name: "ServiceNow",
+    packageRange: "33.6",
+    year: "2022",
+    role: "Associate Platform Developer",
+    tier: "Top-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["Java/JS", "DSA", "REST APIs"],
+    interviewRounds: "1. OA – Java/JS coding, logic puzzles\n2. Tech Interviews (2) – REST APIs, OOPs, DSA, platform development scenarios\n3. HR – Behavioral questions",
+    description: "Cloud computing platform providing enterprise service management software."
+  },
+  {
+    id: "gojek",
+    name: "Gojek",
+    packageRange: "32",
+    year: "2022",
+    role: "Associate Product Engineer",
+    tier: "Top-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["DSA", "System Design (basic)", "Backend skills"],
+    interviewRounds: "1. OA – DSA (Medium to Hard), Time complexity\n2. Tech Interviews (2–3) – Backend architecture, API design, basic system design, coding\n3. HR – Values, adaptability",
+    description: "Southeast Asian on-demand multi-service platform and digital payment technology."
+  },
+  {
+    id: "jp-morgan",
+    name: "JP Morgan",
+    packageRange: "19.75 - 28",
+    year: "2023",
+    role: "Associate Software Engineer",
+    tier: "Top-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["DSA", "Java/Python", "DBMS", "OOP"],
+    interviewRounds: "1. OA – Aptitude, DBMS, OOPs, Coding (Java/Python)\n2. Tech Interview – DSA, SQL joins, OOP design\n3. HR – Team fit, scenario-based questions",
+    description: "Leading global financial services firm with strong technology division."
+  },
+  {
+    id: "nutanix",
+    name: "Nutanix",
+    packageRange: "21 - 22",
+    year: "2023, 2024",
+    role: "Cloud Associate Engineer",
+    tier: "Top-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["Cloud concepts", "Python/Go", "OS"],
+    interviewRounds: "1. OA – Python, OS concepts, cloud basics\n2. Tech Interviews (2) – Linux, Cloud deployment models, system troubleshooting\n3. HR – Work culture, motivation",
+    description: "Enterprise cloud computing company specializing in hyper-converged infrastructure."
+  },
+  {
+    id: "de-shaw",
+    name: "D.E Shaw",
+    packageRange: "16 - 23",
+    year: "2024",
+    role: "Quantitative Research Analyst",
+    tier: "Top-Tier Companies",
+    branches: ["CSE", "Circuit"],
+    requirements: ["Aptitude", "Stats", "Python/C++", "Puzzles"],
+    interviewRounds: "1. OA – Quant + Logical reasoning, puzzles\n2. Tech Interviews (2) – Python/C++, probability/stats, brain teasers\n3. HR – Communication, interest in finance-tech",
+    description: "Quantitative investment management firm using computational technology."
+  },
+  {
+    id: "vmware",
+    name: "VMware",
+    packageRange: "19.5 - 22",
+    year: "2022, 2023",
+    role: "Associate DevOps Engineer",
+    tier: "Top-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["DevOps", "Linux", "Scripting", "CI/CD"],
+    interviewRounds: "1. OA – Linux MCQs, scripting basics\n2. Tech Interviews – Shell scripting, CI/CD pipelines, DevOps toolchains\n3. HR – Project experience, adaptability",
+    description: "Leading provider of cloud computing and platform virtualization software."
+  },
+  {
+    id: "jtp-japan",
+    name: "JTP Japan",
+    packageRange: "24",
+    year: "2024",
+    role: "International Business Trainee",
+    tier: "International Roles",
+    branches: ["CSE", "IT"],
+    requirements: ["Communication", "Business Basics", "Aptitude"],
+    interviewRounds: "1. Resume Shortlist\n2. Aptitude Test – Quant + Logic (easy)\n3. HR Interview – Communication, Japanese culture adaptability",
+    description: "Japanese technology consulting firm offering international business opportunities."
+  },
+  {
+    id: "amazon",
+    name: "Amazon",
+    packageRange: "5.5 - 30",
+    year: "2023, 2024",
+    role: "SDE-I",
+    tier: "Top-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["DSA", "OOP", "System Design (L1)"],
+    interviewRounds: "1. OA (Coding) – 2 DSA problems (Medium–Hard)\n2. Tech (2–3 Rounds) – DSA, System Design (L1), leadership principles\n3. HR – Amazon Leadership Principles",
+    description: "Global e-commerce and cloud computing giant with extensive technology operations."
+  },
+  {
+    id: "cisco",
+    name: "Cisco",
+    packageRange: "14 - 15",
+    year: "2023, 2024",
+    role: "Network Associate Engineer",
+    tier: "Mid-Tier Companies",
+    branches: ["Circuit", "CSE", "IT"],
+    requirements: ["Networking", "OS", "Python", "DSA"],
+    interviewRounds: "1. OA – Networking MCQs, DSA, OS\n2. Tech (1–2) – Python scripting, troubleshooting scenarios\n3. HR – Situational questions",
+    description: "Multinational technology company specializing in networking hardware and software."
+  },
+  {
+    id: "philips-healthcare",
+    name: "Philips Healthcare",
+    packageRange: "14",
+    year: "2024",
+    role: "Associate Biomedical Engineer",
+    tier: "Mid-Tier Companies",
+    branches: ["Core", "Circuit"],
+    requirements: ["Electronics", "Biomedical", "Embedded"],
+    interviewRounds: "1. Resume Shortlist\n2. Tech + HR – Embedded systems, Biomedical signals, team questions",
+    description: "Healthcare technology company focused on improving patient outcomes through innovation."
+  },
+  {
+    id: "josh-technology",
+    name: "Josh Technology",
+    packageRange: "14.75 - 17.4",
+    year: "2023",
+    role: "Associate Developer",
+    tier: "Mid-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["DSA", "JavaScript/React/Java"],
+    interviewRounds: "1. OA (Coding) – 2 DSA questions\n2. Tech Interviews (2) – React/Java-based design questions, problem solving\n3. HR – Goals, cultural alignment",
+    description: "Technology consulting company specializing in software development and digital solutions."
+  },
+  {
+    id: "amadeus",
+    name: "Amadeus",
+    packageRange: "11.77",
+    year: "2023, 2024",
+    role: "Travel Tech Developer",
+    tier: "Mid-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["DBMS", "Java/SQL", "Web Dev"],
+    interviewRounds: "1. OA – DBMS + Java/SQL questions\n2. Tech (2) – Data modeling, backend service design, SQL joins\n3. HR – Role expectations, projects",
+    description: "Travel technology company providing IT solutions for the global travel industry."
+  },
+  {
+    id: "schneider-electric",
+    name: "Schneider Electric",
+    packageRange: "11.5 - 12",
+    year: "2024",
+    role: "Graduate Engineer",
+    tier: "Core Engg.",
+    branches: ["Core", "Circuit"],
+    requirements: ["IoT", "Power Systems", "MATLAB"],
+    interviewRounds: "1. Resume Shortlist\n2. Tech + HR – Power systems, IoT sensors, team collaboration",
+    description: "Global specialist in energy management and automation providing integrated solutions."
+  },
+  {
+    id: "zs-associates",
+    name: "ZS Associates",
+    packageRange: "8.5 - 12.5",
+    year: "2022",
+    role: "Business Ops Associate",
+    tier: "Mid-Tier Companies",
+    branches: ["CSE", "Circuit"],
+    requirements: ["Excel", "SQL", "Aptitude", "Business Logic"],
+    interviewRounds: "1. OA – Aptitude, SQL, Excel formulas\n2. Case Study – Business logic, Excel-based analysis\n3. Interview – Communication, problem approach",
+    description: "Management consulting and technology firm focused on sales and marketing solutions."
+  },
+  {
+    id: "taurani-holdings",
+    name: "Taurani Holdings (UAE)",
+    packageRange: "8.4",
+    year: "2024",
+    role: "Supply Chain Analyst",
+    tier: "International Roles",
+    branches: ["Core", "Circuit"],
+    requirements: ["Excel", "SCM Concepts", "Aptitude"],
+    interviewRounds: "1. Resume Review\n2. Aptitude – SCM basics, Excel logic\n3. HR – Motivation for role",
+    description: "UAE-based conglomerate with diverse business interests across multiple sectors."
+  },
+  {
+    id: "infosys",
+    name: "Infosys",
+    packageRange: "5.0 - 9.5",
+    year: "2023, 2024",
+    role: "Systems Engineer",
+    tier: "Mass Recruiters",
+    branches: ["CSE", "IT"],
+    requirements: ["DSA", "Java/Python", "DBMS"],
+    interviewRounds: "1. Infosys OA – Coding, Verbal, Logical\n2. Tech – Java/Python, DSA, DBMS\n3. HR – Work-life questions",
+    description: "Global leader in next-generation digital services and consulting."
+  },
+  {
+    id: "persistent-systems",
+    name: "Persistent Systems",
+    packageRange: "4.71 - 9.0",
+    year: "2022–2024",
+    role: "Software Trainee",
+    tier: "Mass Recruiters",
+    branches: ["CSE", "Circuit"],
+    requirements: ["DSA", "OOP", "Java/.NET"],
+    interviewRounds: "1. OA – Coding + Aptitude\n2. Tech – Java/.NET, SDLC, project-based questions\n3. HR – Flexibility, growth interest",
+    description: "Technology services and solutions company with global delivery capabilities."
+  },
+  {
+    id: "capgemini",
+    name: "Capgemini",
+    packageRange: "4.0 - 7.5",
+    year: "2022–2024",
+    role: "Associate Consultant",
+    tier: "Mass Recruiters",
+    branches: ["CSE", "IT"],
+    requirements: ["DBMS", "Java/SQL", "Reasoning"],
+    interviewRounds: "1. OA – Pseudocode, reasoning, English grammar\n2. Interview – Project + General HR",
+    description: "Global leader in consulting, technology services and digital transformation."
+  },
+  {
+    id: "wipro",
+    name: "Wipro",
+    packageRange: "3.5 - 7.5",
+    year: "2022",
+    role: "Project Engineer (Elite)",
+    tier: "Mass Recruiters",
+    branches: ["CSE", "IT"],
+    requirements: ["Java", "OOPs", "English Comprehension"],
+    interviewRounds: "1. OA – Java/OOPs, English comprehension\n2. Tech – Basic project, OOP\n3. HR – Situational",
+    description: "Leading global information technology, consulting and business process services company."
+  },
+  {
+    id: "accenture",
+    name: "Accenture",
+    packageRange: "4.5 - 6.5",
+    year: "2023, 2024",
+    role: "Software Engineer",
+    tier: "Mass Recruiters",
+    branches: ["CSE", "IT"],
+    requirements: ["DSA", "OOP", "DBMS"],
+    interviewRounds: "1. OA – Aptitude + 2 Coding (Easy)\n2. Interview – DBMS, Java, communication",
+    description: "Global professional services company with leading capabilities in digital, cloud and security."
+  },
+  {
+    id: "adani-group",
+    name: "Adani Group",
+    packageRange: "6 - 6.5",
+    year: "2023, 2024",
+    role: "Graduate Engineer",
+    tier: "Core Engg.",
+    branches: ["Core", "Circuit"],
+    requirements: ["Renewable Energy", "PowerSys", "Projects"],
+    interviewRounds: "1. Resume Shortlist\n2. Tech – Energy systems, circuits\n3. HR – Role fit",
+    description: "Multinational conglomerate with interests in renewable energy, ports, and infrastructure."
+  },
+  {
+    id: "siemens",
+    name: "Siemens",
+    packageRange: "5.5 - 6",
+    year: "2024",
+    role: "Graduate Trainee",
+    tier: "Core Engg.",
+    branches: ["Circuit", "Core"],
+    requirements: ["Electrical Basics", "MATLAB", "PLC"],
+    interviewRounds: "1. Resume Shortlist\n2. Tech – MATLAB, PLC programming\n3. HR – Growth mindset",
+    description: "Global technology company focused on industry, infrastructure, transport, and healthcare."
+  },
+  {
+    id: "lt",
+    name: "L&T",
+    packageRange: "5.0 - 6.5",
+    year: "2022–2024",
+    role: "GET",
+    tier: "Core Engg.",
+    branches: ["Core"],
+    requirements: ["Mech/Civil Concepts", "Drawing"],
+    interviewRounds: "1. Written Test – Domain MCQs\n2. Tech – Civil/Mech concepts\n3. HR – Relocation readiness",
+    description: "Indian multinational conglomerate with interests in engineering, construction, and technology."
+  },
+  {
+    id: "cognizant",
+    name: "Cognizant",
+    packageRange: "4.0 - 6.8",
+    year: "2022–2024",
+    role: "GenC Next Associate",
+    tier: "Mass Recruiters",
+    branches: ["CSE", "IT"],
+    requirements: ["Java/.NET", "DBMS", "Aptitude"],
+    interviewRounds: "1. OA – Aptitude + Tech MCQs\n2. Tech – Java/.NET, DBMS\n3. HR – Resume, team skills",
+    description: "American multinational technology company providing digital, technology, consulting, and operations services."
+  },
+  {
+    id: "tcs",
+    name: "TCS",
+    packageRange: "3.36 - 7.0",
+    year: "2022–2024",
+    role: "Ninja/Digital Engineer",
+    tier: "Mass Recruiters",
+    branches: ["CSE", "IT"],
+    requirements: ["DSA", "OOPs", "Coding"],
+    interviewRounds: "1. NQT – Aptitude + Coding\n2. Tech – Java/OOPs, SQL\n3. HR – Self-intro, goals",
+    description: "Indian multinational information technology services and consulting company."
+  },
+  {
+    id: "bny-mellon",
+    name: "BNY Mellon",
+    packageRange: "17",
+    year: "2022",
+    role: "Graduate Trainee (Tech)",
+    tier: "Mid-Tier Companies",
+    branches: ["CSE", "IT"],
+    requirements: ["DBMS", "DSA", "Python/Java"],
+    interviewRounds: "1. OA – Python/Java, DBMS, DSA\n2. Tech – OOPs, projects\n3. HR – Collaboration questions",
+    description: "American worldwide banking and financial services holding company."
+  },
+  {
+    id: "tata-steel",
+    name: "Tata Steel",
+    packageRange: "5",
+    year: "2024",
+    role: "Graduate Engineer",
+    tier: "Core Engg.",
+    branches: ["Core"],
+    requirements: ["Mech/Chem Core Subjects", "Safety"],
+    interviewRounds: "1. Resume\n2. Tech – Mech/Chem core + Safety scenarios\n3. HR – Industrial mindset",
+    description: "Indian multinational steel-making company headquartered in Mumbai."
+  },
+  {
+    id: "ibm",
+    name: "IBM",
+    packageRange: "4.5",
+    year: "2022–2024",
+    role: "Associate System Engineer",
+    tier: "Mass Recruiters",
+    branches: ["CSE", "IT"],
+    requirements: ["Java/Python", "DBMS", "SDLC"],
+    interviewRounds: "1. OA – Aptitude + Coding\n2. Tech – DBMS, Java/Python, SDLC\n3. HR – Soft skills, projects",
+    description: "American multinational technology corporation providing hardware, software, and cloud services."
+  }
+];
+
+export const skillsData = [
+  { name: "DSA", category: "Programming", level: "Essential", companies: ["Amazon", "Google", "Microsoft"] },
+  { name: "Java", category: "Programming", level: "Essential", companies: ["JP Morgan", "Infosys", "TCS"] },
+  { name: "Python", category: "Programming", level: "Essential", companies: ["Fivetran", "LG AD Solution"] },
+  { name: "SQL", category: "Database", level: "Essential", companies: ["Fivetran", "Amadeus", "ZS Associates"] },
+  { name: "System Design", category: "Architecture", level: "Advanced", companies: ["Amazon", "Gojek"] },
+  { name: "Machine Learning", category: "AI/ML", level: "Specialized", companies: ["LG AD Solution"] },
+  { name: "Cloud Computing", category: "Infrastructure", level: "Advanced", companies: ["Nutanix", "AWS"] },
+  { name: "DevOps", category: "Infrastructure", level: "Advanced", companies: ["VMware"] },
+  { name: "Networking", category: "Infrastructure", level: "Specialized", companies: ["Cisco"] },
+  { name: "React", category: "Frontend", level: "Intermediate", companies: ["Josh Technology"] }
+];

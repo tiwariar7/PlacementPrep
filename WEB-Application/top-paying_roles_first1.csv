@@ -1,0 +1,87 @@
+Sr. No.,Company Name,Package (LPA),Year(s),Fresher Role Offered,Company Tier,Eligible Branches,Role Requirement,Interview Rounds
+1,Fivetran,25 - 48,2023,Data Engineering Associate,Top-Tier Companies,CSE & IT,"SQL, Python, ETL pipelines, DSA","1. OA – SQL queries, Python scripting, ETL logic, DSA
+2. Tech Interviews (2) – SQL optimization, database schema design, Python logic, project discussion
+3. HR – Resume, culture fit, communication"
+2,LG AD Solution,37,2024,Associate AI Engineer,Top-Tier Companies,CSE & IT,"ML/DL, Python, CV/NLP","1. OA – Python + ML MCQs, basic CV/NLP logic
+2. Tech Interview – Deep Learning models, real-world ML application, past projects
+3. Managerial + HR – AI roadmap discussion, team fit"
+3,ServiceNow,33.6,2022,Associate Platform Developer,Top-Tier Companies,CSE & IT,"Java/JS, DSA, REST APIs","1. OA – Java/JS coding, logic puzzles
+2. Tech Interviews (2) – REST APIs, OOPs, DSA, platform development scenarios
+3. HR – Behavioral questions"
+4,Gojek,32,2022,Associate Product Engineer,Top-Tier Companies,CSE & IT,"DSA, System Design (basic), Backend skills","1. OA – DSA (Medium to Hard), Time complexity
+2. Tech Interviews (2–3) – Backend architecture, API design, basic system design, coding
+3. HR – Values, adaptability"
+5,JP Morgan,19.75 - 28,2023,Associate Software Engineer,Top-Tier Companies,CSE & IT,"DSA, Java/Python, DBMS, OOP","1. OA – Aptitude, DBMS, OOPs, Coding (Java/Python)
+2. Tech Interview – DSA, SQL joins, OOP design
+3. HR – Team fit, scenario-based questions"
+6,Nutanix,21 - 22,"2023, 2024",Cloud Associate Engineer,Top-Tier Companies,CSE & IT,"Cloud concepts, Python/Go, OS","1. OA – Python, OS concepts, cloud basics
+2. Tech Interviews (2) – Linux, Cloud deployment models, system troubleshooting
+3. HR – Work culture, motivation"
+7,D.E Shaw,16 - 23,2024,Quantitative Research Analyst,Top-Tier Companies,"CSE, Circuit","Aptitude, Stats, Python/C++, Puzzles","1. OA – Quant + Logical reasoning, puzzles
+2. Tech Interviews (2) – Python/C++, probability/stats, brain teasers
+3. HR – Communication, interest in finance-tech"
+8,VMware,19.5 - 22,"2022, 2023",Associate DevOps Engineer,Top-Tier Companies,CSE & IT,"DevOps, Linux, Scripting, CI/CD","1. OA – Linux MCQs, scripting basics
+2. Tech Interviews – Shell scripting, CI/CD pipelines, DevOps toolchains
+3. HR – Project experience, adaptability"
+9,JTP Japan,24,2024,International Business Trainee,International Roles,CSE & IT,"Communication, Business Basics, Aptitude","1. Resume Shortlist
+2. Aptitude Test – Quant + Logic (easy)
+3. HR Interview – Communication, Japanese culture adaptability"
+10,Amazon,5.5 - 30,"2023, 2024",SDE-I,Top-Tier Companies,CSE & IT,"DSA, OOP, System Design (L1)","1. OA (Coding) – 2 DSA problems (Medium–Hard)
+2. Tech (2–3 Rounds) – DSA, System Design (L1), leadership principles
+3. HR – Amazon Leadership Principles"
+11,Cisco,14 - 15,"2023, 2024",Network Associate Engineer,Mid-Tier Companies,"Circuit, CSE & IT","Networking, OS, Python, DSA","1. OA – Networking MCQs, DSA, OS
+2. Tech (1–2) – Python scripting, troubleshooting scenarios
+3. HR – Situational questions"
+12,Philips Healthcare,14,2024,Associate Biomedical Engineer,Mid-Tier Companies,"Core, Circuit","Electronics, Biomedical, Embedded","1. Resume Shortlist
+2. Tech + HR – Embedded systems, Biomedical signals, team questions"
+13,Josh Technology,14.75 - 17.4,2023,Associate Developer,Mid-Tier Companies,CSE & IT,"DSA, JavaScript/React/Java","1. OA (Coding) – 2 DSA questions
+2. Tech Interviews (2) – React/Java-based design questions, problem solving
+3. HR – Goals, cultural alignment"
+14,Amadeus,11.77,"2023, 2024",Travel Tech Developer,Mid-Tier Companies,CSE & IT,"DBMS, Java/SQL, Web Dev","	1. OA – DBMS + Java/SQL questions
+2. Tech (2) – Data modeling, backend service design, SQL joins
+3. HR – Role expectations, projects"
+15,Schneider Electric,11.5 - 12,2024,Graduate Engineer,Core Engg.,"Core, Circuit","IoT, Power Systems, MATLAB","1. Resume Shortlist
+2. Tech + HR – Power systems, IoT sensors, team collaboration"
+16,ZS Associates,8.5 - 12.5,2022,Business Ops Associate,Mid-Tier Companies,"CSE, Circuit","Excel, SQL, Aptitude, Business Logic","1. OA – Aptitude, SQL, Excel formulas
+2. Case Study – Business logic, Excel-based analysis
+3. Interview – Communication, problem approach"
+17,Taurani Holdings (UAE),8.4,2024,Supply Chain Analyst,International Roles,"Core, Circuit","Excel, SCM Concepts, Aptitude","1. Resume Review
+2. Aptitude – SCM basics, Excel logic
+3. HR – Motivation for role"
+18,Infosys,5.0 - 9.5,"2023, 2024",Systems Engineer,Mass Recruiters,CSE & IT,"DSA, Java/Python, DBMS","1. Infosys OA – Coding, Verbal, Logical
+2. Tech – Java/Python, DSA, DBMS
+3. HR – Work-life questions"
+19,Persistent Systems,4.71 - 9.0,2022–2024,Software Trainee,Mass Recruiters,"CSE, Circuit","DSA, OOP, Java/.NET","1. OA – Coding + Aptitude
+2. Tech – Java/.NET, SDLC, project-based questions
+3. HR – Flexibility, growth interest"
+20,Capgemini,4.0 - 7.5,2022–2024,Associate Consultant,Mass Recruiters,CSE & IT,"DBMS, Java/SQL, Reasoning","1. OA – Pseudocode, reasoning, English grammar
+2. Interview – Project + General HR"
+21,Wipro,3.5 - 7.5,2022,Project Engineer (Elite),Mass Recruiters,CSE & IT,"Java, OOPs, English Comprehension","1. OA – Java/OOPs, English comprehension
+2. Tech – Basic project, OOP
+3. HR – Situational"
+22,Accenture,4.5 - 6.5,"2023, 2024",Software Engineer,Mass Recruiters,CSE & IT,"DSA, OOP, DBMS","1. OA – Aptitude + 2 Coding (Easy)
+2. Interview – DBMS, Java, communication"
+23,Adani Group,6 - 6.5,"2023, 2024",Graduate Engineer,Core Engg.,"Core, Circuit","Renewable Energy, PowerSys, Projects","1. Resume Shortlist
+2. Tech – Energy systems, circuits
+3. HR – Role fit"
+24,Siemens,5.5 - 6,2024,Graduate Trainee,Core Engg.,"Circuit, Core","Electrical Basics, MATLAB, PLC","1. Resume Shortlist
+2. Tech – MATLAB, PLC programming
+3. HR – Growth mindset"
+25,L&T,5.0 - 6.5,2022–2024,GET,Core Engg.,Core,"Mech/Civil Concepts, Drawing","1. Written Test – Domain MCQs
+2. Tech – Civil/Mech concepts
+3. HR – Relocation readiness"
+26,Cognizant,4.0 - 6.8,2022–2024,GenC Next Associate,Mass Recruiters,CSE & IT,"Java/.NET, DBMS, Aptitude","1. OA – Aptitude + Tech MCQs
+2. Tech – Java/.NET, DBMS
+3. HR – Resume, team skills"
+27,TCS,3.36 - 7.0,2022–2024,Ninja/Digital Engineer,Mass Recruiters,CSE & IT,"DSA, OOPs, Coding","1. NQT – Aptitude + Coding
+2. Tech – Java/OOPs, SQL
+3. HR – Self-intro, goals"
+28,BNY Mellon,17,2022,Graduate Trainee (Tech),Mid-Tier Companies,CSE & IT,"DBMS, DSA, Python/Java","1. OA – Python/Java, DBMS, DSA
+2. Tech – OOPs, projects
+3. HR – Collaboration questions"
+29,Tata Steel,5,2024,Graduate Engineer,Core Engg.,Core,"Mech/Chem Core Subjects, Safety","1. Resume
+2. Tech – Mech/Chem core + Safety scenarios
+3. HR – Industrial mindset"
+30,IBM,4.5,2022–2024,Associate System Engineer,Mass Recruiters,CSE & IT,"Java/Python, DBMS, SDLC","1. OA – Aptitude + Coding
+2. Tech – DBMS, Java/Python, SDLC
+3. HR – Soft skills, projects"
