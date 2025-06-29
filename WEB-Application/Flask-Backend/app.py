@@ -4,35 +4,41 @@ import json
 import os
 import csv
 import requests
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-# Configure Gemini API
-GOOGLE_API_KEY = "AIzaSyDlETgJoJRgjaJUPBJN7KPel6PKU7FZiIw"
+# Configure Gemini API from environment variables
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+if not GOOGLE_API_KEY:
+    raise ValueError("No GOOGLE_API_KEY set in environment variables")
 GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GOOGLE_API_KEY}"
 
-# --- File Paths ---
-# Adjusted for containerized environment. We will copy companies.ts during the Docker build.
-USERS_FILE = 'data/users.json'
-TOP_PAYING_ROLES_FILE = 'data/top-paying_roles_first1.csv'
-
-# --- API Key ---
-# Load API key from environment variable for security
-
-
-# --- Parse companies.ts for companies and skillsData ---
-COMPANIES_FILE = 'data/companies.json'
-SKILLS_FILE = 'data/skills.json'
+# --- File Paths --- (now from environment variables)
+USERS_FILE = os.getenv('USERS_FILE', 'data/users.json')
+TOP_PAYING_ROLES_FILE = os.getenv('TOP_PAYING_ROLES_FILE', 'data/top-paying_roles_first1.csv')
+COMPANIES_FILE = os.getenv('COMPANIES_FILE', 'data/companies.json')
+SKILLS_FILE = os.getenv('SKILLS_FILE', 'data/skills.json')
 
 def load_companies_and_skills():
-    with open(COMPANIES_FILE, encoding='utf-8') as f:
-        companies = json.load(f)
+    try:
+        with open(COMPANIES_FILE, encoding='utf-8') as f:
+            companies = json.load(f)
 
-    with open(SKILLS_FILE, encoding='utf-8') as f:
-        skills = json.load(f)
+        with open(SKILLS_FILE, encoding='utf-8') as f:
+            skills = json.load(f)
 
-    return companies, skills
+        return companies, skills
+    except FileNotFoundError as e:
+        print(f"Error loading data files: {e}")
+        return [], []
+    except json.JSONDecodeError as e:
+        print(f"Error parsing JSON files: {e}")
+        return [], []
 
 companies_cache, skills_cache = load_companies_and_skills()
 
@@ -56,61 +62,77 @@ def signup():
     data = request.get_json()
     if not data:
         return jsonify({'error': 'Invalid JSON'}), 400
+    
     required_fields = ['firstName', 'lastName', 'email', 'password', 'branch', 'currentYear', 'college']
     if not all(field in data and data[field] for field in required_fields):
         return jsonify({'error': 'Missing required fields'}), 400
-    # Load users
-    if os.path.exists(USERS_FILE):
-        with open(USERS_FILE, 'r', encoding='utf-8') as f:
-            try:
+    
+    try:
+        # Load users
+        if os.path.exists(USERS_FILE):
+            with open(USERS_FILE, 'r', encoding='utf-8') as f:
                 users = json.load(f)
-            except Exception:
-                users = []
-    else:
-        users = []
-    # Check for duplicate email
-    if any(u['email'] == data['email'] for u in users):
-        return jsonify({'error': 'Email already registered'}), 409
-    users.append(data)
-    with open(USERS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(users, f, indent=2)
-    return jsonify({'message': 'Account created successfully!'}), 201
+        else:
+            users = []
+        
+        # Check for duplicate email
+        if any(u['email'] == data['email'] for u in users):
+            return jsonify({'error': 'Email already registered'}), 409
+        
+        users.append(data)
+        
+        # Ensure directory exists
+        os.makedirs(os.path.dirname(USERS_FILE), exist_ok=True)
+        
+        with open(USERS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(users, f, indent=2)
+            
+        return jsonify({'message': 'Account created successfully!'}), 201
+    except Exception as e:
+        print(f"Error in signup: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
 
 @app.route('/api/signin', methods=['POST'])
 def signin():
     data = request.get_json()
     if not data:
         return jsonify({'error': 'Invalid JSON'}), 400
+    
     email = data.get('email')
     password = data.get('password')
     if not email or not password:
         return jsonify({'error': 'Email and password required'}), 400
-    if os.path.exists(USERS_FILE):
-        with open(USERS_FILE, 'r', encoding='utf-8') as f:
-            try:
+    
+    try:
+        if os.path.exists(USERS_FILE):
+            with open(USERS_FILE, 'r', encoding='utf-8') as f:
                 users = json.load(f)
-            except Exception:
-                users = []
-    else:
-        users = []
-    user = next((u for u in users if u['email'] == email and u['password'] == password), None)
-    if user:
-        # Don't return password
-        user_info = {k: v for k, v in user.items() if k != 'password'}
-        return jsonify({'message': 'Sign in successful', 'user': user_info}), 200
-    return jsonify({'error': 'Invalid email or password'}), 401
+        else:
+            users = []
+            
+        user = next((u for u in users if u['email'] == email and u['password'] == password), None)
+        if user:
+            # Don't return password
+            user_info = {k: v for k, v in user.items() if k != 'password'}
+            return jsonify({'message': 'Sign in successful', 'user': user_info}), 200
+        return jsonify({'error': 'Invalid email or password'}), 401
+    except Exception as e:
+        print(f"Error in signin: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
 
 @app.route('/api/top-paying-roles', methods=['GET'])
 def get_top_paying_roles():
-    roles = []
-    if os.path.exists(TOP_PAYING_ROLES_FILE):
-        with open(TOP_PAYING_ROLES_FILE, encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                roles.append(row)
-    return jsonify(roles)
-
-GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GOOGLE_API_KEY}"
+    try:
+        roles = []
+        if os.path.exists(TOP_PAYING_ROLES_FILE):
+            with open(TOP_PAYING_ROLES_FILE, encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    roles.append(row)
+        return jsonify(roles)
+    except Exception as e:
+        print(f"Error loading top paying roles: {e}")
+        return jsonify({'error': 'Failed to load data'}), 500
 
 def get_ai_response(company=None, role=None, round_type="Technical", num_questions=5):
     try:
@@ -133,6 +155,7 @@ Generate {num_questions} high-quality, relevant interview questions for the {rou
         }
         headers = {'Content-Type': 'application/json'}
         response = requests.post(GEMINI_API_URL, headers=headers, json=data)
+        
         if response.status_code == 200:
             result = response.json()
             if 'candidates' in result and len(result['candidates']) > 0:
@@ -156,6 +179,7 @@ def ask_assistant():
         role = data.get('role')
         round_type = data.get('round_type', 'Technical')
         num_questions = int(data.get('num_questions', 5))
+        
         response = get_ai_response(company, role, round_type, num_questions)
         return jsonify({
             "response": response,
@@ -182,6 +206,7 @@ def mock_interview():
         qa_history = ""
         for idx, qa in enumerate(previous_answers):
             qa_history += f"Q{idx+1}: {qa['question']}\nA{idx+1}: {qa['answer']}\n"
+            
         if len(previous_answers) < num_questions:
             prompt = f"""
 You are an expert interview question generator for campus placements.
@@ -223,6 +248,7 @@ Count how many answers are correct. Return a JSON object: {{"finished": true, "c
         }
         headers = {'Content-Type': 'application/json'}
         response = requests.post(GEMINI_API_URL, headers=headers, json=data_gemini)
+        
         if response.status_code == 200:
             result = response.json()
             if 'candidates' in result and len(result['candidates']) > 0:
@@ -251,4 +277,4 @@ Count how many answers are correct. Return a JSON object: {{"finished": true, "c
         return jsonify({'error': 'Server error'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(debug=os.getenv('FLASK_ENV') == 'development')
