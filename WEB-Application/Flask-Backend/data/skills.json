@@ -1,0 +1,62 @@
+[
+  {
+    "name": "DSA",
+    "category": "Programming",
+    "level": "Essential",
+    "companies": ["Amazon", "Google", "Microsoft"]
+  },
+  {
+    "name": "Java",
+    "category": "Programming",
+    "level": "Essential",
+    "companies": ["JP Morgan", "Infosys", "TCS"]
+  },
+  {
+    "name": "Python",
+    "category": "Programming",
+    "level": "Essential",
+    "companies": ["Fivetran", "LG AD Solution"]
+  },
+  {
+    "name": "SQL",
+    "category": "Database",
+    "level": "Essential",
+    "companies": ["Fivetran", "Amadeus", "ZS Associates"]
+  },
+  {
+    "name": "System Design",
+    "category": "Architecture",
+    "level": "Advanced",
+    "companies": ["Amazon", "Gojek"]
+  },
+  {
+    "name": "Machine Learning",
+    "category": "AI/ML",
+    "level": "Specialized",
+    "companies": ["LG AD Solution"]
+  },
+  {
+    "name": "Cloud Computing",
+    "category": "Infrastructure",
+    "level": "Advanced",
+    "companies": ["Nutanix", "AWS"]
+  },
+  {
+    "name": "DevOps",
+    "category": "Infrastructure",
+    "level": "Advanced",
+    "companies": ["VMware"]
+  },
+  {
+    "name": "Networking",
+    "category": "Infrastructure",
+    "level": "Specialized",
+    "companies": ["Cisco"]
+  },
+  {
+    "name": "React",
+    "category": "Frontend",
+    "level": "Intermediate",
+    "companies": ["Josh Technology"]
+  }
+]

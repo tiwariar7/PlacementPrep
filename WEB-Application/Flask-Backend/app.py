@@ -8,60 +8,33 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
+# Configure Gemini API
+GOOGLE_API_KEY = "AIzaSyDlETgJoJRgjaJUPBJN7KPel6PKU7FZiIw"
+GEMINI_API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GOOGLE_API_KEY}"
+
 # --- File Paths ---
 # Adjusted for containerized environment. We will copy companies.ts during the Docker build.
-COMPANIES_FILE = 'companies.ts'
-USERS_FILE = 'users.json'
-TOP_PAYING_ROLES_FILE = 'top-paying_roles_first1.csv'
+USERS_FILE = 'data/users.json'
+TOP_PAYING_ROLES_FILE = 'data/top-paying_roles_first1.csv'
 
 # --- API Key ---
 # Load API key from environment variable for security
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-if not GOOGLE_API_KEY:
-    raise ValueError("No GOOGLE_API_KEY set for Flask application")
+
 
 # --- Parse companies.ts for companies and skillsData ---
-def parse_companies_ts():
-    # This is a hacky parser for the specific structure of companies.ts
-    # In production, use a JSON export or a proper parser
-    companies = []
-    skills = []
+COMPANIES_FILE = 'data/companies.json'
+SKILLS_FILE = 'data/skills.json'
+
+def load_companies_and_skills():
     with open(COMPANIES_FILE, encoding='utf-8') as f:
-        content = f.read()
-    # Extract companies array
-    import re
-    companies_match = re.search(r'export const companies: Company\[\] = \[(.*?)]\s*;', content, re.DOTALL)
-    if companies_match:
-        companies_str = companies_match.group(1)
-        # Split by '},' at the top level
-        company_blocks = re.findall(r'\{[^\{\}]*\}', companies_str)
-        for block in company_blocks:
-            try:
-                # Replace JS/TS syntax with JSON
-                block_json = block.replace("'", '"')
-                block_json = re.sub(r'(\w+):', r'"\1":', block_json)
-                block_json = block_json.replace('"[', '[').replace(']"', ']').replace('"{', '{').replace('}"', '}')
-                company = json.loads(block_json)
-                companies.append(company)
-            except Exception:
-                continue
-    # Extract skillsData array
-    skills_match = re.search(r'export const skillsData = \[(.*?)\];', content, re.DOTALL)
-    if skills_match:
-        skills_str = skills_match.group(1)
-        skill_blocks = re.findall(r'\{[^\{\}]*\}', skills_str)
-        for block in skill_blocks:
-            try:
-                block_json = block.replace("'", '"')
-                block_json = re.sub(r'(\w+):', r'"\1":', block_json)
-                block_json = block_json.replace('"[', '[').replace(']"', ']').replace('"{', '{').replace('}"', '}')
-                skill = json.loads(block_json)
-                skills.append(skill)
-            except Exception:
-                continue
+        companies = json.load(f)
+
+    with open(SKILLS_FILE, encoding='utf-8') as f:
+        skills = json.load(f)
+
     return companies, skills
 
-companies_cache, skills_cache = parse_companies_ts()
+companies_cache, skills_cache = load_companies_and_skills()
 
 @app.route('/api/companies', methods=['GET'])
 def get_companies():
