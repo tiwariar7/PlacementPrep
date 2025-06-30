@@ -1,6 +1,3 @@
-Here's your professionally updated README with the requested link added under a "Live Demo" section, along with a note about the authorization issue:
-
-```markdown
 # PlacementPrep
 
 PlacementPrep is a full-stack web application to help students prepare for campus placements. It features a React frontend and a Python Flask backend, now restructured for seamless deployment on Netlify using serverless functions.
@@ -35,4 +32,3 @@ All API endpoints are available under `/api/` (e.g., `/api/companies`, `/api/sig
 
 ## License
 MIT
-```
